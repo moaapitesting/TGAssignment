@@ -32,7 +32,12 @@ module ShopModule
   end
 
   def button_name(text_button)
-    @browser.button(text:text_button).wait_until(&:present?)
+    @browser.span(text:'Physical SIM').wait_until(&:present?)
+    @browser.button(text:text_button).wait_until(&:present?).click
+  end
+
+  def checkout(text_button)
+    @browser.button(text:text_button).wait_until(&:present?).click
   end
 
   def select_tablet_plan
@@ -43,7 +48,27 @@ module ShopModule
     @browser.button('aria-label':text_button).wait_until(&:present?)
   end
 
-  # def plandata
-  #   @browser.div(title:'title-block').h5(text:'Small Data SIM Plan').wait_until(&:present?)
-  # end
+  def input_for_checkout(id,input_text)
+    @browser.input(id: id).send_keys(input_text)
+  end
+
+  def autocomplete_selection
+    @browser.div(class:'all-results  ').ul.li(index:1).click
+  end
+
+  def button_select
+    @browser.a('aria-label':'Next',text:'Next').click
+  end
+
+  def button_select_occupation
+    @browser.a('aria-label':'Next',text:'Next').click
+  end
+
+  def input_from_dropdown(id,input_text)
+    driver = @browser.driver
+    drop = driver.find_element(:id, id)
+    choose = Selenium::WebDriver::Support::Select.new(drop)
+    choose.select_by(:text, input_text)
+  end
+
 end

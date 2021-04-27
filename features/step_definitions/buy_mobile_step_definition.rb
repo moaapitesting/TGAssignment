@@ -161,5 +161,29 @@ And('I select plan from Device') do |arg0|
 end
 
 And('User click on {string} button') do |arg0|
-  $page.button_name("Proceed to Cart").click
+  $page.button_name(arg0)
+  end
+
+And('I click on {string} in checkout page') do |arg0|
+  $page.checkout(arg0)
+end
+
+And('I pass the value for {string} as {string}') do |id, input_text|
+  $page.input_for_checkout(id, input_text)
+end
+
+And('I select the value for {string} as {string}') do |id, input_text|
+  $page.input_from_dropdown(id, input_text)
+end
+
+And('I select value from dropdown') do
+  $page.autocomplete_selection
+end
+
+And('I select next button') do
+  $page.button_select
+end
+
+And('I select next button in the page') do
+  $page.checkout('Next')
 end

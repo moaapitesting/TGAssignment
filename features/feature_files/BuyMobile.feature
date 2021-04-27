@@ -35,7 +35,27 @@ Feature: Gomo Buy a SIM Page check
     And I am selecting "I'm new to Optus radio button" from radio button
     And I am selecting "Proceed to checkout as a new customer" from selection
     And User click on "Proceed to Cart" button
-
+    And I click on "CHECKOUT" in checkout page
+    And I pass the value for "emailAddress" as "shoptest@yopmail.com"
+    And I pass the value for "emailAddressConfirmation" as "shoptest@yopmail.com"
+    And I click on "Continue" in checkout page
+    And I pass the value for "primaryContactNumber" as "0400000000"
+    And I pass the value for "firstName" as "Shop"
+    And I pass the value for "lastName" as "Test"
+    And I pass the value for "dobYear" as "2000"
+    And I select the value for "dobDay" as "22"
+    And I select the value for "dobMonth" as "Jan"
+    And I select the value for "title" as "Mr"
+    And I pass the value for "dobYear" as "2000"
+    And I click on "Next" in checkout page
+    And I pass the value for "addressAutoInput-uxPrimaryAddressDetails" as "1-7 lyonpark"
+    And I select value from dropdown
+    And I select the value for "residentialStatus" as "Renting"
+    And I select the value for "yearLivedAtAddress" as "1"
+    And I select the value for "monthLivedAtAddress" as "10"
+    And I select next button
+    And I select the value for "occupation" as "Unemployed"
+    And I select next button in the page
 
   @Optus_shop_purchase_2
   Scenario: Gomo Buy a SIM page for component validation
