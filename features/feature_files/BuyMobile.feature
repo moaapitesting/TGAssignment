@@ -36,8 +36,8 @@ Feature: Gomo Buy a SIM Page check
     And I am selecting "Proceed to checkout as a new customer" from selection
     And User click on "Proceed to Cart" button
     And I click on "CHECKOUT" in checkout page
-    And I pass the value for "emailAddress" as "shoptest@yopmail.com"
-    And I pass the value for "emailAddressConfirmation" as "shoptest@yopmail.com"
+    And I pass the value for "emailAddress" as "shoptest1@yopmail.com"
+    And I pass the value for "emailAddressConfirmation" as "shoptest1@yopmail.com"
     And I click on "Continue" in checkout page
     And I pass the value for "primaryContactNumber" as "0400000000"
     And I pass the value for "firstName" as "Shop"
@@ -51,11 +51,27 @@ Feature: Gomo Buy a SIM Page check
     And I pass the value for "addressAutoInput-uxPrimaryAddressDetails" as "1-7 lyonpark"
     And I select value from dropdown
     And I select the value for "residentialStatus" as "Renting"
-    And I select the value for "yearLivedAtAddress" as "1"
+    And I select the value for "yearLivedAtAddress" as "3"
     And I select the value for "monthLivedAtAddress" as "10"
     And I select next button
+#    And I landed on occupation details page
+    And I wait for "Your Occupation details" from header to appear
     And I select the value for "occupation" as "Unemployed"
-    And I select next button in the page
+    And I select next button in "occupation" page
+    And I am selecting "Australian driver's licence" from selection
+    And I select the value for "stateOfIssue" as "NSW"
+    And I pass the value for "driversLicenseNumber" as "11111111"
+    And I select the value for "expiryMonth" as "May"
+    And I select the value for "expiryYear" as "2025"
+    And I check the identification document checkbox
+    And I select next button in "identification document" page
+    And I wait for "Delivery Details" from header to appear
+#    And I select next button in "identification document" page
+#    And I select next button in "shipping address" page
+#    And I select next button in "Billing address" page
+#    And I am selecting "No direct debit - Make manual payments" from selection
+#    And I select next button in "Manual Payment" page
+#    And I am in the confirm order page
 
   @Optus_shop_purchase_2
   Scenario: Gomo Buy a SIM page for component validation

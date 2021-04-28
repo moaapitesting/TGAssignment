@@ -140,6 +140,10 @@ When('I landed on Data Sim page') do
   puts 'Optus Phone Page successfully loaded'
 end
 
+And('I am in the confirm order page') do
+  expect($page.cofirm_your_order).to be true
+end
+
 And('I click on {string} button in Datasim page') do |buy_now|
   $page.data_sim_filter("BUY NOW Small Data SIM Plan",buy_now).click
 end
@@ -176,12 +180,24 @@ And('I select the value for {string} as {string}') do |id, input_text|
   $page.input_from_dropdown(id, input_text)
 end
 
+And('I wait for {string} from header to appear') do | input_text|
+  $page.header_occupation(input_text)
+end
+
 And('I select value from dropdown') do
   $page.autocomplete_selection
 end
 
 And('I select next button') do
   $page.button_select
+end
+
+And('I check the identification document checkbox') do
+  $page.check_box_check
+end
+
+And('I select next button in {string} page') do |arg0|
+  $page.button_next
 end
 
 And('I select next button in the page') do

@@ -27,6 +27,10 @@ module ShopModule
     @browser.span(text: text_present).wait_until(&:present?)
   end
 
+  def cofirm_your_order
+    @browser.h4(text: 'Confirm your order').wait_until(&:present?)
+  end
+
   def data_sim_filter(arialabel,text_present)
     @browser.button('aria-label': arialabel,text:text_present).wait_until(&:present?)
   end
@@ -56,12 +60,24 @@ module ShopModule
     @browser.div(class:'all-results  ').ul.li(index:1).click
   end
 
+  def check_box_check
+    @browser.input(name:'areDetailsConfirmed').parent.click
+  end
+
   def button_select
     @browser.a('aria-label':'Next',text:'Next').click
   end
 
+  def button_next
+    @browser.button(text:'Next').click
+  end
+
   def button_select_occupation
     @browser.a('aria-label':'Next',text:'Next').click
+  end
+
+  def header_occupation(text_header)
+    @browser.h2(text:text_header).wait_until(&:present?)
   end
 
   def input_from_dropdown(id,input_text)
